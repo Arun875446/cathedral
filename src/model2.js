@@ -8,7 +8,7 @@ import GUI from "lil-gui";
 
 // Debug
 const gui = new GUI();
-gui.hide();
+// gui.hide();
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
@@ -152,6 +152,13 @@ gltfLoader.load("/models/santa.glb", (gltf) => {
   gltf.scene.scale.set(1, 1, 1);
   gltf.scene.position.set(13, -0.5, -14);
   gltf.scene.rotation.set(0, Math.PI, 0);
+  gltf.scene.traverse((child) => {
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+  });
+
   scene.add(gltf.scene);
 });
 
@@ -201,13 +208,13 @@ gltfLoader.load("/models/mourn.glb", (gltf) => {
 const cameraFolder = gui.addFolder("Camera Controls");
 
 const swiper = cameraFolder.addFolder("Swiper");
-swiper.add(camera.position, "x").min(-10).max(1).step(0.1).name("X Axis");
+swiper.add(directionalLight.position, "x").min(-10).max(1).step(0.1).name("X Axis");
 
 const elevate = cameraFolder.addFolder("Elevate");
-elevate.add(camera.position, "y").min(-10).max(30).step(0.1).name("Y Axis");
+elevate.add(directionalLight.position, "y").min(-10).max(30).step(0.1).name("Y Axis");
 
 const zoomer = cameraFolder.addFolder("Zoomer");
-zoomer.add(camera.position, "z").min(-10).max(51.8).step(0.1).name("Z Axis");
+zoomer.add(directionalLight.position, "z").min(-10).max(51.8).step(0.1).name("Z Axis");
 
 // Close folders by default
 swiper.close();
