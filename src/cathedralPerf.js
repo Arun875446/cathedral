@@ -55,7 +55,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.set(-8, 5, 15);
+camera.position.set(-10, 8, 26);
 scene.add(camera);
 
 // Controls
@@ -102,10 +102,25 @@ const loadModel = (url, position, scale, rotation) => {
 // Load assets
 loadModel("/models/church-two.glb", [0, 0, 0], [1, 1, 1], [0, 0, 0]);
 loadModel("/models/santa.glb", [13, -0.5, -14], [1, 1, 1], [0, Math.PI, 0]);
-loadModel("/models/monastery-garden/scene.gltf", [13, -2, -12.5], [3, 3, 3], [0, 0, 0]);
-loadModel("/models/tomb.glb", [-11, -1, -5], [0.2, 0.2, 0.2], [0, Math.PI / 2.4, 0]);
+loadModel(
+  "/models/monastery-garden/scene.gltf",
+  [13, -2, -12.5],
+  [3, 3, 3],
+  [0, 0, 0]
+);
+loadModel(
+  "/models/tomb.glb",
+  [-11, -1, -5],
+  [0.2, 0.2, 0.2],
+  [0, Math.PI / 2.4, 0]
+);
 loadModel("/models/mourn.glb", [-10.5, -0.9, -7], [10, 10, 10], [0, 0, 0]);
+loadModel("/models/iron_gate.glb", [-10.5, 1.5, 8], [0.7, 0.5, 0.5], [0, 0, 0]);
+loadModel("/models/pumpkin.glb", [-11, 0.1, -5], [4, 4, 4], [0, 0, 0]);
 
+const pointLight = new THREE.PointLight("orange", 5);
+pointLight.position.set(-11, 0.1, -5);
+scene.add(pointLight);
 /**
  * Ghost Soul
  */
@@ -123,7 +138,10 @@ const createGhostSoul = (radius, particleCount) => {
       r * Math.cos(phi)
     );
   }
-  geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
+  geometry.setAttribute(
+    "position",
+    new THREE.Float32BufferAttribute(vertices, 3)
+  );
   return geometry;
 };
 
@@ -147,7 +165,9 @@ const animateGhostSoul = (time) => {
 };
 
 setInterval(() => {
-  ghostSoulMaterial.color.set(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+  ghostSoulMaterial.color.set(
+    `#${Math.floor(Math.random() * 16777215).toString(16)}`
+  );
 }, 2000); // Less frequent updates for better performance
 
 /**
