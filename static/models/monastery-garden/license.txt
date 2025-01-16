@@ -1,0 +1,11 @@
+Model Information:
+* title:	In A Monastery Garden - Voxel
+* source:	https://sketchfab.com/3d-models/in-a-monastery-garden-voxel-6efd7572c3a640a09a757b568bce45a3
+* author:	metagrundierung (https://sketchfab.com/metagrundierung)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "In A Monastery Garden - Voxel" (https://sketchfab.com/3d-models/in-a-monastery-garden-voxel-6efd7572c3a640a09a757b568bce45a3) by metagrundierung (https://sketchfab.com/metagrundierung) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
