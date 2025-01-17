@@ -170,6 +170,7 @@ setInterval(() => {
   );
 }, 2000); // Less frequent updates for better performance
 
+scene.fog = new THREE.FogExp2('#04343f', 0.025)
 /**
  * Animation Loop
  */
